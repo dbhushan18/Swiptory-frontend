@@ -1,0 +1,65 @@
+.no_bookmark_text {
+    color: #8E8E8E;
+    margin-top: 3.5rem;
+    margin-bottom: 5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.bookmark_heading {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+}
+
+.slides_container{
+    position: relative;
+}
+
+.story_container {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    justify-content: left;
+    margin-left: 2rem;
+    margin-left: 2rem;
+}
+
+.slide {
+    position: relative;
+    width: 22vw;
+    height: 65vh;
+    border-radius: 1rem;
+}
+
+.slide_detail {
+    position: absolute;
+    bottom: 2.2rem;
+    left: 1rem;
+    margin-right: 0.6rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    text-align: left;
+}
+
+.story_description{
+    font-size: 0.7rem;
+}
+
+@media (max-width:768px){
+    .slide{
+        width: 90vw;
+        
+    }
+
+    .story_container{
+        margin-left: 0;
+        margin-right: 0;
+        justify-content: center;
+    }
+
+    .bookmark_heading{
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+    }
+}

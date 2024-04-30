@@ -1,0 +1,94 @@
+.no_story_text {
+    color: #8E8E8E;
+    margin-top: 3.5rem;
+    margin-bottom: 7rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.category_heading {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+}
+
+.slides_container{
+    position: relative;
+}
+
+.story_container {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: left;
+    margin-left: 2.5rem;
+    margin-right: 2rem;
+}
+
+.slide {
+    position: relative;
+    width: 21vw;
+    height: 72vh;
+    border-radius: 0.8rem;
+}
+
+.slide_detail {
+    position: absolute;
+    bottom: 2.2rem;
+    left: 1rem;
+    margin-right: 0.6rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    text-align: left;
+}
+
+.story_description{
+    font-size: 0.7rem;
+}
+
+.edit_btn{
+    background-color: #ffffff;
+    border-radius: 2rem;
+    width: 7rem;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4); /* Bottom shadow */
+}
+
+.more_btn{
+    background-color: #FF7373;
+    color: #ffffff;
+    font-weight: 700;
+    width: 8rem;
+    height: 3rem;
+    border-radius: 2rem;
+    margin-top: 3rem;
+}
+
+@media (max-width:768px){
+    .slide{
+        width: 90vw;
+        
+    }
+
+    .story_container{
+        margin-left: 0;
+        margin-right: 0;
+        justify-content: center;
+    }
+
+    .category_heading{
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .user_stories{
+        display: none;
+    }
+}
