@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { getBookmarks } from '../../APIs/story';
 import StoryViewer from '../StoryViewer/StoryViewer';
 import styles from '../Bookmarks/Bookmarks.module.css'
+import Loader from '../Loader/Loader';
 
 function Bookmarks() {
   const [bookmarks, setBookmarks] = useState([]);
   const [selectedStory, setSelectedStory] = useState(null);
   const [isViewStory, setIsViewStory] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchBookmarks();
@@ -15,7 +17,9 @@ function Bookmarks() {
   const fetchBookmarks = async () => {
     try {
       const bookmarkData = await getBookmarks(localStorage.getItem("owner"));
+      setLoading(false);
       setBookmarks(bookmarkData);
+
     } catch (error) {
       console.error('Error fetching bookmarks:', error);
     }
@@ -27,6 +31,10 @@ function Bookmarks() {
   };
 
   return (
+    <div>
+    {
+      loading?(
+      <Loader/> ) : (
     <div>
       <h2 className={styles.bookmark_heading}>Your Bookmarks</h2>
       {Object.values(bookmarks).length === 0 ? (
@@ -54,10 +62,11 @@ function Bookmarks() {
         </div>
       )}
       {isViewStory && selectedStory && (
-        <StoryViewer closeModal={handleBookmarkClick} slides={selectedStory.slides} fetchBookmarks={fetchBookmarks} bookmark = {true}/>
+        <StoryViewer closeModal={handleBookmarkClick} slides={selectedStory.slides} fetchBookmarks={fetchBookmarks} bookmark={true} />
       )}
     </div>
-  )
-}
+  )}
+  </div>
+  )}
 
 export default Bookmarks

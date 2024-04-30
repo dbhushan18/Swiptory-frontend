@@ -202,6 +202,10 @@
         border-radius: 2rem;
     }
 
+    .heading{
+        z-index: 1;
+    }
+
     .selected_filter {
         border: 5px solid #00ACD2;
         border-radius: 2.3rem;
@@ -233,7 +237,7 @@
 
     .mob_user_present{
         gap: 2rem;
-        z-index: 555;
+        z-index: 1000;
         height: 70vh;
         width: 100%;
     }
