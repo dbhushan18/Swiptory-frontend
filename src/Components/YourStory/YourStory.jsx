@@ -4,12 +4,16 @@ import { getUserStories } from '../../APIs/story';
 import edit from '../../assets/Story/edit.png'
 import StoryViewer from '../StoryViewer/StoryViewer';
 import Loader from '../Loader/Loader';
+import CreateStoryForm from '../StorySection/CreateStoryForm';
 
 function YourStory() {
   const [userStories, setUserStories] = useState({});
   const [selectedStory, setSelectedStory] = useState(null);
   const [isViewStory, setIsViewStory] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [storyDataForEdit, setStoryDataForEdit] = useState(null);
+
 
   useEffect(() => {
     fetchUserStories();
@@ -32,6 +36,16 @@ function YourStory() {
     setSelectedStory(story);
     setIsViewStory(!isViewStory);
   }
+
+  const handleEditStory = (story) => {
+    setStoryDataForEdit(story);
+    setIsEditModalOpen(true);
+  };
+
+  const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
+  };
+
 
   return (
     <div>
@@ -69,12 +83,20 @@ function YourStory() {
 
             </div>
           )}
+          {isEditModalOpen && (
+            <CreateStoryForm
+              closeStoryForm={handleCloseEditModal}
+              initialValues={storyDataForEdit}
+              isEditing={true}
+            />
+          )}
         </div>
       )}
 
       {isViewStory && selectedStory && (
         <StoryViewer closeModal={handleStoryClick} slides={selectedStory.slides} fetchBookmarks={fetchUserStories} bookmark={true} />
       )}
+
     </div>
   )
 }
